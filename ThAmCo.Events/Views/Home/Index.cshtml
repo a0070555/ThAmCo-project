@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "ThAmCo";
+}
+
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="container">
+    <img src="images/HomePhoto.jpg" width="1092" height="500">
+</div>
+<div class="jumbotron">
+    <div class="container">
+        <h1>ThAmCo</h1>
+        <p>Welcome to ThAmCo. Get started creating your events today!</p>
+        <p><a class="btn btn-primary btn-lg" role="button" asp-area="" asp-controller="Events" asp-action="Index">Learn more about events &raquo;</a></p>
+    </div>
+</div>
+
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Customers</h2>
+            <p>Here you can view all the customers in our database! Create, edit, and remove these customers here!</p>
+            <p><a class="btn btn-secondary" role="button" asp-area="" asp-controller="Customers" asp-action="Index">View Customers &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Events</h2>
+            <p>Welcome to ThAmCo Events! Here you can create your own event as well as make changes to events, remove events, and see all the guests assigned to your events!</p>
+            <p><a class="btn btn-secondary" role="button" asp-area="" asp-controller="Events" asp-action="Index">View Events &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Staff</h2>
+            <p>All events need staff! Here you can take a look at all the staff members on offer and add any new staff members!</p>
+            <p><a class="btn btn-secondary" role="button" asp-area="" asp-controller="Staff" asp-action="Index">View Staff &raquo;</a></p>
+        </div>
+        <hr>
+        <div class="col-md-4">
+            <h2>Book Customers</h2>
+            <p>Do you want to book a customer onto an event? Click below to learn more!</p>
+            <p><a class="btn btn-secondary" role="button" asp-area="" asp-controller="GuestBookings" asp-action="Index">Book Now &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Assign Staff</h2>
+            <p>Time to assign some staff to your events, do this by clicking below!</p>
+            <p><a class="btn btn-secondary" role="button" asp-area="" asp-controller="Staffing" asp-action="Index">Assign Staff &raquo;</a></p>
+        </div>
+    </div>
+    <hr>
+
+</div> <!-- /container -->

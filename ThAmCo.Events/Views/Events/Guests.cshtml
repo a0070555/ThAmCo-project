@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ThAmCo.Events.Models.GuestBooking>
+
+@{
+    ViewData["Title"] = "Guests";
+}
+
+<h1>Guests</h1>
+@{ 
+    // Getting a total count of guests and displaying it
+    var count = 0;
+    foreach (var i in Model)
+    {
+        count += 1;
+    }
+}
+<h2>Total number of guests: @count</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attendance)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attendance)
+            </td>
+            <td>
+                @Html.ActionLink("Register Attendance", "Edit", "GuestBookings", new { id = item.CustomerId, item.EventId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

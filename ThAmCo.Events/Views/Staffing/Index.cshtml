@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ThAmCo.Events.Models.Staffing>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Book Staff</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Staff)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Staff.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event.Title)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.EventId, item.StaffId }) |
+                @Html.ActionLink("Remove", "Delete", new { id = item.EventId, item.StaffId })
+
+                @if (item.Staff.FirstAider == false)
+                {
+                <p style="color:Red;">This event does not have a first aider assigned!</p>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

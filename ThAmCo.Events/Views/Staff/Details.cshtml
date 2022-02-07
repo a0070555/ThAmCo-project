@@ -1,0 +1,81 @@
+﻿@model ThAmCo.Events.ViewModels.StaffViewModels.StaffDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Staff Member</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstAider)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstAider)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.StaffId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<h3>Upcoming Events</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Events.FirstOrDefault().Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events.FirstOrDefault().EventDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events.FirstOrDefault().EventType)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            //Ensuring not to display events if none exist for the staff member
+            if (Model.Staffing.FirstOrDefault() != null)
+            {
+
+                @foreach (var item in Model.Events)
+                {
+                    //Only displaying upcoming events
+                    if (DateTime.Now < item.EventDate)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EventDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EventType)
+                            </td>
+                        </tr>
+                    }
+                }
+                }
+            }
+            </tbody>
+</table>
